@@ -32,7 +32,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.sensors.rmd=false \
     ro.vendor.sensors.scrn_ortn=false \
     ro.vendor.sensors.sta_detect=true
-
-# Display
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=420

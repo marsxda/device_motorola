@@ -47,8 +47,5 @@ ENABLE_VENDOR_RIL_SERVICE := true
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy-mods/vendor
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy-mods/private
 
-# Soong namespaces
-PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
-
 # inherit from the proprietary version
 -include vendor/motorola/beckham/BoardConfigVendor.mk

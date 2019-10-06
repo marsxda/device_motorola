@@ -1,0 +1,3 @@
+add_lunch_combo havoc_beckham-eng
+add_lunch_combo havoc_beckham-user
+add_lunch_combo havoc_beckham-userdebug

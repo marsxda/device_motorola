@@ -46,5 +46,8 @@ ENABLE_VENDOR_RIL_SERVICE := false
 # Treble
 PRODUCT_SHIPPING_API_LEVEL := 27
 
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
+
 # inherit from the proprietary version
 -include vendor/motorola/beckham/BoardConfigVendor.mk

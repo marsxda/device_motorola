@@ -364,7 +364,7 @@ vendor/lib64/libdualcameraddm.so
 vendor/lib/libS5k2l7Pdaf.so
 vendor/lib/libS5k2l7PdafCamif.so
 vendor/lib/libmm-qcamera.so
-vendor/lib/libmot_gpu_mapper.so
+vendor/lib/libmot_gpu_mapper.so|1de4a9e6b7780ed532259b17a5c7fa021cc23559
 
 # Camera - Firmware
 vendor/firmware/cpp_firmware_v1_10_0.fw
@@ -396,7 +396,7 @@ vendor/lib64/libssd.so
 
 # Fingerprint
 vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-fpcservice
-vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc
+vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc|7574aa1db5fc0a8343cdd8910e62994d650fbe59
 vendor/lib64/com.fingerprints.extension@1.0.so
 
 # Firmware

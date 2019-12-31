@@ -7,10 +7,6 @@ etc/acdbdata/Hdmi_cal.acdb:vendor/etc/acdbdata/Hdmi_cal.acdb
 etc/acdbdata/Headset_cal.acdb:vendor/etc/acdbdata/Headset_cal.acdb
 etc/acdbdata/Speaker_cal.acdb:vendor/etc/acdbdata/Speaker_cal.acdb
 
-# Display calib
-vendor/etc/qdcm_calib_data_mipi_mot_cmd_smd_1080p_601.xml
-vendor/etc/qdcm_calib_data_mipi_mot_cmd_tianma_1080p_601.xml
-
 # Camera
 etc/zaf/zaf_mot_s5k2l7sa.json:vendor/etc/zaf/zaf_mot_s5k2l7sa.json
 etc/zaf/zaf_imx386.json:vendor/etc/zaf/zaf_imx386.json
@@ -379,6 +375,16 @@ vendor/firmware/cpp_firmware_v1_5_2.fw
 vendor/firmware/cpp_firmware_v1_6_0.fw
 vendor/firmware/cpp_firmware_v1_8_0.fw
 
+# Display calib
+vendor/etc/qdcm_calib_data_mipi_mot_cmd_smd_1080p_601.xml
+vendor/etc/qdcm_calib_data_mipi_mot_cmd_tianma_1080p_601.xml
+
+# Display Panels
+vendor/firmware/synaptics-smd-s3706b-18020101-298a66-beckham-dvt1a.tdat
+vendor/firmware/synaptics-smd-s3706b-18020101-298a66-beckham-evt.tdat
+vendor/firmware/synaptics-smd-s3706b-18060602-29dc70-beckham.tdat
+vendor/firmware/synaptics-tianma-s3706a-18060801-29dce7-beckham.tdat
+
 # DRM
 vendor/bin/qseecomd
 vendor/lib/libcppf.so
@@ -462,3 +468,12 @@ vendor/lib64/sensors.iio.so
 vendor/lib/sensors.iio.so
 vendor/lib64/libiio.so
 vendor/lib/libiio.so
+
+# Sound Card - Moon
+vendor/firmware/moon-dsp1-concurrent.bin
+vendor/firmware/moon-dsp1-concurrent.wmfw
+vendor/firmware/moon-dsp1-ultrasound.bin
+vendor/firmware/moon-dsp1-ultrasound.wmfw
+vendor/firmware/moon-dsp2-aov-frontend.wmfw
+vendor/firmware/moon-dsp2-aov-vrgain.bin
+vendor/firmware/moon-dsp3-aov-control.wmfw

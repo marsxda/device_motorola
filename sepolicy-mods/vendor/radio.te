@@ -1,0 +1,1 @@
+allow radio mods_service:service_manager find;

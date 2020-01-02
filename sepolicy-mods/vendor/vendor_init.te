@@ -1,0 +1,2 @@
+# Greybus
+allow vendor_init greybus_fw_data_file:dir create_dir_perms;

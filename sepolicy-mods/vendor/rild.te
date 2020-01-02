@@ -1,0 +1,3 @@
+# Mods
+allow rild hal_modmanager_hwservice:hwservice_manager find;
+allow rild mods_app:binder transfer;

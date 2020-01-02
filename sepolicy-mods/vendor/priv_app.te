@@ -1,0 +1,2 @@
+# Mods
+allow priv_app mods_app:unix_stream_socket connectto;

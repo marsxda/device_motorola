@@ -1,0 +1,2 @@
+# Add domain for Modservice app
+user=_app seinfo=common domain=mods_app name=com.motorola.modservice type=app_data_file levelFrom=user

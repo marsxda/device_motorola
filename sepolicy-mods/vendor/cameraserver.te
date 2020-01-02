@@ -1,0 +1,4 @@
+allow cameraserver mods_service:service_manager find;
+
+allow cameraserver sysfs_greybus_media:dir r_dir_perms;
+allow cameraserver sysfs_greybus_media:file r_file_perms;

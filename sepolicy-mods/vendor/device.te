@@ -1,2 +1,5 @@
+# Greybus raw device
 type greybus_raw_device, dev_type, mlstrustedobject;
-type mods_camd_device, dev_type, mlstrustedobject;
+
+# MotCamera external device
+type mot_camera_ext_device, dev_type;

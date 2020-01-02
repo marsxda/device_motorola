@@ -49,7 +49,9 @@ ENABLE_VENDOR_RIL_SERVICE := false
 
 # SELinux
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy-mods/vendor
+BOARD_PLAT_PUBLIC_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy-mods/public
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy-mods/private
+
 # Treble
 PRODUCT_SHIPPING_API_LEVEL := 27
 

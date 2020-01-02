@@ -1,0 +1,34 @@
+# ModService
+allow mods_app self:netlink_kobject_uevent_socket { bind create read setopt };
+
+allow mods_app {
+    mods_service
+    audioserver_service
+    cameraserver_service
+    radio_service
+}:service_manager find;
+
+allow mods_app rild:binder { call transfer };
+allow mods_app rild:fd use;
+
+allow mods_app greybus_fw_data_file:dir rw_dir_perms;
+allow mods_app greybus_fw_data_file:file rw_file_perms;
+allow mods_app greybus_raw_device:chr_file open;
+allow mods_app mot_camera_ext_device:chr_file rw_file_perms;
+allow mods_app sysfs_batt_mods:dir r_dir_perms;
+allow mods_app sysfs_batt_mods:file rw_file_perms;
+allow mods_app sysfs_battery_supply:dir r_dir_perms;
+allow mods_app sysfs_battery_supply: { file lnk_file } r_file_perms;
+allow mods_app sysfs_greybus:dir r_dir_perms;
+allow mods_app sysfs_greybus: { file lnk_file } rw_file_perms;
+allow mods_app sysfs_greybus_media:dir r_dir_perms;
+allow mods_app sysfs_greybus_media: { file lnk_file } rw_file_perms;
+allow mods_app sysfs_mods_camd:file r_file_perms;
+allow mods_app sysfs_thermal:dir r_dir_perms;
+allow mods_app sysfs_thermal: { file lnk_file } r_file_perms;
+allow mods_app sysfs_usb_supply:dir r_dir_perms;
+allow mods_app sysfs_usb_supply: { file lnk_file } r_file_perms;
+allow mods_app sysfs_v4l2_openmode:file rw_file_perms;
+allow mods_app sysfs_vibrator:dir r_dir_perms;
+allow mods_app sysfs_vibrator: { file lnk_file } r_file_perms;
+allow mods_app sysfs_vibrator_attr:file rw_file_perms;

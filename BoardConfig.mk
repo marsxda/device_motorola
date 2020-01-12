@@ -31,6 +31,7 @@ TARGET_KERNEL_CONFIG := lineageos_beckham_defconfig
 
 # HIDL
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/touch.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
 # NFC
 BOARD_NFC_CHIPSET := pn553

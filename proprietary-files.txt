@@ -375,6 +375,19 @@ vendor/firmware/cpp_firmware_v1_5_2.fw
 vendor/firmware/cpp_firmware_v1_6_0.fw
 vendor/firmware/cpp_firmware_v1_8_0.fw
 
+# CNE
+etc/permissions/vendor.qti.hardware.data.connection-V1.0-java.xml
+framework/com.quicinc.cne.server-V2.3-java.jar
+framework/vendor.qti.data.factory-V1.1-java.jar
+framework/vendor.qti.hardware.data.connection-V1.0-java.jar
+framework/vendor.qti.hardware.factory-V1.0-java.jar
+-vendor/lib/com.quicinc.cne.server@2.3.so
+vendor/lib/vendor.qti.data.factory@1.1.so
+vendor/lib/vendor.qti.hardware.data.connection@1.0.so
+-vendor/lib64/com.quicinc.cne.server@2.3.so
+vendor/lib64/vendor.qti.data.factory@1.1.so
+vendor/lib64/vendor.qti.hardware.data.connection@1.0.so
+
 # Display calib
 vendor/etc/qdcm_calib_data_mipi_mot_cmd_smd_1080p_601.xml
 vendor/etc/qdcm_calib_data_mipi_mot_cmd_tianma_1080p_601.xml
@@ -427,7 +440,29 @@ vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 vendor/lib64/hw/gatekeeper.sdm660.so
 
 # IMS
+framework/com.qualcomm.qti.imscmservice-V2.0-java.jar
+framework/com.qualcomm.qti.imscmservice-V2.1-java.jar
+framework/com.qualcomm.qti.uceservice-V2.0-java.jar
 -priv-app/ims/ims.apk|f7a360987dff0f0af67a7c40e3ebd3a3329259a9
+vendor/bin/imsrcsd
+vendor/lib/com.qualcomm.qti.imscmservice@1.0.so
+vendor/lib/com.qualcomm.qti.imscmservice@2.0.so
+vendor/lib/com.qualcomm.qti.imscmservice@2.1.so
+vendor/lib/lib-imscmservice.so
+vendor/lib/lib-imsqimf.so
+vendor/lib/lib-imsrcs-v2.so
+vendor/lib/lib-imsrcsbaseimpl.so
+vendor/lib/lib-siputility.so
+vendor/lib/lib-uceservice.so
+vendor/lib64/com.qualcomm.qti.imscmservice@1.0.so
+vendor/lib64/com.qualcomm.qti.imscmservice@2.0.so
+vendor/lib64/com.qualcomm.qti.imscmservice@2.1.so
+vendor/lib64/lib-imscmservice.so
+vendor/lib64/lib-imsqimf.so
+vendor/lib64/lib-imsrcs-v2.so
+vendor/lib64/lib-imsrcsbaseimpl.so
+vendor/lib64/lib-siputility.so
+vendor/lib64/lib-uceservice.so
 
 # Keymaster
 vendor/bin/hw/android.hardware.keymaster@3.0-service-qti
@@ -468,6 +503,10 @@ vendor/lib64/sensors.iio.so
 vendor/lib/sensors.iio.so
 vendor/lib64/libiio.so
 vendor/lib/libiio.so
+
+# Radio
+vendor/lib/vendor.qti.hardware.radio.qtiradio@2.1.so
+vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.1.so
 
 # Sound Card - Moon
 vendor/firmware/moon-dsp1-concurrent.bin

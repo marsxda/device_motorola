@@ -40,3 +40,6 @@ sed -i "s|mot_mod|oem_5020|g" "$MODPERM"
 # Load ZAF configs from vendor
 ZAF_CORE="$BLOB_ROOT"/vendor/lib/libzaf_core.so
 sed -i "s|/system/etc/zaf|/vendor/etc/zaf|g" "$ZAF_CORE"
+
+# Fix xml version
+sed -i 's/xml version="2.0"/xml version="1.0"/' "$BLOB_ROOT"/etc/permissions/vendor.qti.hardware.data.connection-V1.0-java.xml

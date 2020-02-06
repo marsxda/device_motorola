@@ -424,7 +424,7 @@ vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 vendor/lib64/hw/gatekeeper.sdm660.so
 
 # IMS
--priv-app/ims/ims.apk|f7a360987dff0f0af67a7c40e3ebd3a3329259a9
+-product/priv-app/ims/ims.apk|54c9f8f49d567082f7d23cee40a54515162dbf90
 
 # Keymaster
 vendor/bin/hw/android.hardware.keymaster@3.0-service-qti

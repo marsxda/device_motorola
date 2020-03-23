@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/motorola/nash
+DEVICE_PATH := device/motorola/beckham
 
 # Platform
 TARGET_ARCH := arm64
@@ -92,8 +92,8 @@ QCOM_BT_USE_BTNV := true
 
 # Board
 BOARD_USES_QCOM_HARDWARE := true
-TARGET_BOOTLOADER_BOARD_NAME := Nash
-TARGET_BOARD_PLATFORM := msm8998
+TARGET_BOOTLOADER_BOARD_NAME := SDM660
+TARGET_BOARD_PLATFORM := sdm660
 
 # Camera
 TARGET_USES_QTI_CAMERA_DEVICE := true
@@ -147,7 +147,7 @@ ENABLE_CPUSETS := true
 ENABLE_SCHEDBOOST := true
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_CLANG_COMPILE := true
-TARGET_KERNEL_CONFIG := lineageos_nash_defconfig
+TARGET_KERNEL_CONFIG := lineageos_beckham_defconfig
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_KERNEL_SOURCE := kernel/motorola/msm8998
 
@@ -202,7 +202,7 @@ BOARD_USES_QC_TIME_SERVICES := true
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 BOARD_VNDK_VERSION := current
 PRODUCT_FULL_TREBLE_OVERRIDE := true
-PRODUCT_SHIPPING_API_LEVEL := 25
+PRODUCT_SHIPPING_API_LEVEL := 27
 
 # Wifi
 # Read by other flags later, so ignore alphabetization.

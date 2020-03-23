@@ -1,5 +1,5 @@
 #
-# vendor props for nash
+# vendor props for beckham
 #
 
 # Audio
@@ -189,7 +189,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qti.sensors.mot_detect=true \
     ro.qti.sensors.multishake=true \
     ro.qti.sensors.sta_detect=true \
-    ro.hardware.sensors=nash \
+    ro.hardware.sensors=beckham \
     ro.vendor.sensors.maghalcal=true \
     ro.vendor.sensors.amd=false \
     ro.vendor.sensors.pmd=false \

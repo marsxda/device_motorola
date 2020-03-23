@@ -194,7 +194,7 @@ PRODUCT_COPY_FILES += \
 
 # Health
 PRODUCT_PACKAGES += \
-    android.hardware.health@2.0-service.nash
+    android.hardware.health@2.0-service.beckham
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -239,7 +239,7 @@ PRODUCT_PACKAGES += \
 
 # LED
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.nash
+    android.hardware.light@2.0-service.beckham
 
 # LineageActions
 PRODUCT_PACKAGES += \
@@ -247,7 +247,7 @@ PRODUCT_PACKAGES += \
 
 # Lineage hardware
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.nash
+    vendor.lineage.touch@1.0-service.beckham
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
@@ -372,7 +372,7 @@ PRODUCT_PACKAGES += \
     init.mmi.usb.rc \
     init.mmi.usb.sh \
     init.qcom.rc \
-    init.nash.rc \
+    init.beckham.rc \
     init.power.rc \
     init.qcom.early_boot.sh \
     init.qcom.post_boot.sh \
@@ -435,7 +435,7 @@ PRODUCT_PACKAGES += \
 
 # Thermal
 PRODUCT_PACKAGES += \
-    android.hardware.thermal@1.1-service.nash
+    android.hardware.thermal@1.1-service.beckham
 
 # Touchscreen
 PRODUCT_PACKAGES += \

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#define LOG_TAG "android.hardware.health@2.0-service.nash"
+#define LOG_TAG "android.hardware.health@2.0-service.beckham"
 #include <android-base/logging.h>
 
 #include <healthd/healthd.h>
@@ -32,8 +32,8 @@
 
 using android::hardware::health::V2_0::StorageInfo;
 using android::hardware::health::V2_0::DiskStats;
-using ::device::motorola::nash::health::CycleCountBackupRestore;
-using ::device::motorola::nash::health::LearnedCapacityBackupRestore;
+using ::device::motorola::beckham::health::CycleCountBackupRestore;
+using ::device::motorola::beckham::health::LearnedCapacityBackupRestore;
 
 static constexpr int kBackupTrigger = 20;
 static CycleCountBackupRestore ccBackupRestore;

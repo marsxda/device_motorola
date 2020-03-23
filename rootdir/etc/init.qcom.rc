@@ -84,7 +84,7 @@ on fs
     start hwservicemanager
     mount_all /vendor/etc/fstab.qcom --early
 
-    # for android.hardware.health@2.0-service.nash cycle count backup
+    # for android.hardware.health@2.0-service.beckham cycle count backup
     mkdir /persist/battery 0700 system system
 
     chown root system /mnt/vendor/persist

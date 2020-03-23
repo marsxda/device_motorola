@@ -18,7 +18,7 @@
 
 set -e
 
-DEVICE=nash
+DEVICE=beckham
 VENDOR=motorola
 
 # Load extract_utils and do some sanity checks

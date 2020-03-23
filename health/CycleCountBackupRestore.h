@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef DEVICE_MOTOROLA_NASH_HEALTH_CYCLECOUNTBACKUPRESTORE_H
-#define DEVICE_MOTOROLA_NASH_HEALTH_CYCLECOUNTBACKUPRESTORE_H
+#ifndef DEVICE_MOTOROLA_BECKHAM_HEALTH_CYCLECOUNTBACKUPRESTORE_H
+#define DEVICE_MOTOROLA_BECKHAM_HEALTH_CYCLECOUNTBACKUPRESTORE_H
 
 #include <string>
 #include <android-base/file.h>
@@ -24,7 +24,7 @@
 
 namespace device {
 namespace motorola {
-namespace nash {
+namespace beckham {
 namespace health {
 
 static constexpr int kBucketCount = 8;
@@ -47,8 +47,8 @@ private:
 };
 
 } // namespace health
-} // namespace nash
+} // namespace beckham
 } // namespace motorola
 } // namespace device
 
-#endif // #ifndef DEVICE_MOTOROLA_NASH_HEALTH_CYCLECOUNTBACKUPRESTORE_H
+#endif // #ifndef DEVICE_MOTOROLA_BECKHAM_HEALTH_CYCLECOUNTBACKUPRESTORE_H

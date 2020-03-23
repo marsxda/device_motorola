@@ -18,10 +18,10 @@
 
 set -e
 
-DEVICE=nash
+DEVICE=beckham
 VENDOR=motorola
 
-INITIAL_COPYRIGHT_YEAR=2017
+INITIAL_COPYRIGHT_YEAR=2018
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"

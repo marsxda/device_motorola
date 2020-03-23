@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef DEVICE_MOTOROLA_NASH_HEALTH_LEARNEDCAPACITYBACKUPRESTORE_H
-#define DEVICE_MOTOROLA_NASH_HEALTH_LEARNEDCAPACITYBACKUPRESTORE_H
+#ifndef DEVICE_MOTOROLA_BECKHAM_HEALTH_LEARNEDCAPACITYBACKUPRESTORE_H
+#define DEVICE_MOTOROLA_BECKHAM_HEALTH_LEARNEDCAPACITYBACKUPRESTORE_H
 
 #include <android-base/file.h>
 #include <android-base/logging.h>
@@ -24,7 +24,7 @@
 
 namespace device {
 namespace motorola {
-namespace nash {
+namespace beckham {
 namespace health {
 
 class LearnedCapacityBackupRestore {
@@ -45,8 +45,8 @@ class LearnedCapacityBackupRestore {
 };
 
 }  // namespace health
-}  // namespace nash
+}  // namespace beckham
 }  // namespace motorola
 }  // namespace device
 
-#endif  // #ifndef DEVICE_MOTOROLA_NASH_HEALTH_LEARNEDCAPACITYBACKUPRESTORE_H
+#endif  // #ifndef DEVICE_MOTOROLA_BECKHAM_HEALTH_LEARNEDCAPACITYBACKUPRESTORE_H

@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 cc_binary {
-    name: "android.hardware.health@2.0-service.nash",
-    init_rc: ["android.hardware.health@2.0-service.nash.rc"],
+    name: "android.hardware.health@2.0-service.beckham",
+    init_rc: ["android.hardware.health@2.0-service.beckham.rc"],
     proprietary: true,
     relative_install_path: "hw",
     srcs: [

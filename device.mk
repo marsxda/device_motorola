@@ -90,13 +90,13 @@ TARGET_SCREEN_WIDTH := 1440
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl \
     android.hardware.boot@1.0-service \
-    bootctrl.qcom
+    bootctrl.sdm660
 
 PRODUCT_PACKAGES_DEBUG += \
     bootctl
 
 PRODUCT_STATIC_BOOT_CONTROL_HAL := \
-    bootctrl.qcom \
+    bootctrl.sdm660 \
     libcutils \
     libgptutils \
     libz

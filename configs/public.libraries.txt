@@ -9,3 +9,4 @@ libOpenCL.so
 libnpu.so
 libfastcvopt.so
 libmcf-qc-fd-offline.so
+libadspd.so

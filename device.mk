@@ -104,9 +104,9 @@ PRODUCT_STATIC_BOOT_CONTROL_HAL := \
 # Camera
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/camera/camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/camera_config.xml \
-    $(LOCAL_PATH)/configs/camera/imx386_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/imx386_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/imx386_mono_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/imx386_mono_chromatix.xml \
-    $(LOCAL_PATH)/configs/camera/mot_ov5695_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/mot_ov5695_chromatix.xml
+    $(LOCAL_PATH)/configs/camera/mot_ov5675_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/mot_ov5675_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/mot_s5k4h7_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/mot_s5k4h7_chromatix.xml \
+    $(LOCAL_PATH)/configs/camera/s5k2l7sa_chromatix.xml:$(TARGET_COPY_OUT_VENDOR)/etc/camera/s5k2l7sa_chromatix.xml
 
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \

@@ -22,20 +22,24 @@
 
 #include <fstream>
 
+namespace android {
+namespace hardware {
+namespace light {
+namespace V2_0 {
+namespace implementation {
+
 #define LEDS            "/sys/class/leds/"
 
 #define LCD_LED         LEDS "lcd-backlight/"
-#define WHITE_LED       LEDS "white/"
+#define CHARGING_LED    LEDS "charging/"
 
-#define BLINK           "blink"
 #define BRIGHTNESS      "brightness"
 #define DUTY_PCTS       "duty_pcts"
-#define PAUSE_HI        "pause_hi"
-#define PAUSE_LO        "pause_lo"
-#define RAMP_STEP_MS    "ramp_step_ms"
 #define START_IDX       "start_idx"
-
-#define MAX_BRIGHTNESS    255
+#define PAUSE_LO        "pause_lo"
+#define PAUSE_HI        "pause_hi"
+#define RAMP_STEP_MS    "ramp_step_ms"
+#define BLINK           "blink"
 
 /*
  * 8 duty percent steps.
@@ -48,9 +52,8 @@
 /*
  * Each value represents a duty percent (0 - 100) for the led pwm.
  */
-static uint32_t BRIGHTNESS_RAMP[RAMP_STEPS] = {0, 12, 25, 37, 50, 72, 85, 100};
+static int32_t BRIGHTNESS_RAMP[RAMP_STEPS] = {0, 12, 25, 37, 50, 72, 85, 100};
 
-namespace {
 /*
  * Write value to path and close file.
  */
@@ -58,7 +61,7 @@ static void set(std::string path, std::string value) {
     std::ofstream file(path);
 
     if (!file.is_open()) {
-        ALOGW("failed to write %s to %s", value.c_str(), path.c_str());
+        ALOGE("failed to write %s to %s", value.c_str(), path.c_str());
         return;
     }
 
@@ -69,31 +72,10 @@ static void set(std::string path, int value) {
     set(path, std::to_string(value));
 }
 
-static inline bool isLit(const LightState& state) {
-    return state.color & 0x00ffffff;
-}
-
-static inline uint32_t rgbToBrightness(const LightState& state) {
-    uint32_t alpha, red, green, blue;
-
-    /*
-     * Extract brightness from AARRGGBB.
-     */
-    alpha = (state.color >> 24) & 0xFF;
-    red = (state.color >> 16) & 0xFF;
-    green = (state.color >> 8) & 0xFF;
-    blue = state.color & 0xFF;
-
-    /*
-     * Scale RGB brightness if Alpha brightness is not 0xFF.
-     */
-    if (alpha != 0xFF) {
-        red = red * alpha / 0xFF;
-        green = green * alpha / 0xFF;
-        blue = blue * alpha / 0xFF;
-    }
-
-    return (77 * red + 150 * green + 29 * blue) >> 8;
+static uint32_t rgbToBrightness(const LightState& state) {
+    uint32_t color = state.color & 0x00ffffff;
+    return ((77 * ((color >> 16) & 0xff)) + (150 * ((color >> 8) & 0xff)) +
+            (29 * (color & 0xff))) >> 8;
 }
 
 static void handleBacklight(const LightState& state) {
@@ -109,7 +91,8 @@ static std::string getScaledRamp(uint32_t brightness) {
     std::string ramp, pad;
 
     for (auto const& step : BRIGHTNESS_RAMP) {
-        ramp += pad + std::to_string(step * brightness / 0xFF);
+        int32_t scaledStep = (step * brightness) / 0xFF;
+        ramp += pad + std::to_string(scaledStep);
         pad = ",";
     }
 
@@ -117,10 +100,22 @@ static std::string getScaledRamp(uint32_t brightness) {
 }
 
 static void handleNotification(const LightState& state) {
-    uint32_t brightness = rgbToBrightness(state);
+    uint32_t alpha, brightness;
 
-    /* Disable blinking */
-    set(WHITE_LED BLINK, 0);
+    /*
+     * Extract brightness from AARRGGBB.
+     */
+    alpha = (state.color >> 24) & 0xFF;
+    brightness = rgbToBrightness(state);
+
+    /*
+     * Scale brightness if the Alpha brightness is not 0xFF.
+     */
+    if (alpha != 0xFF)
+        brightness = (brightness * alpha) / 0xFF;
+    
+    /* Disable blinking. */
+    set(CHARGING_LED BLINK, 0);
 
     if (state.flashMode == Flash::TIMED) {
         /*
@@ -137,69 +132,42 @@ static void handleNotification(const LightState& state) {
             pauseHi = 0;
         }
 
-        /* White */
-        set(WHITE_LED START_IDX, 0);
-        set(WHITE_LED DUTY_PCTS, getScaledRamp(brightness));
-        set(WHITE_LED PAUSE_LO, pauseLo);
-        set(WHITE_LED PAUSE_HI, pauseHi);
-        set(WHITE_LED RAMP_STEP_MS, stepDuration);
+        /* Set LED */
+        set(CHARGING_LED START_IDX, 0 * RAMP_STEPS);
+        set(CHARGING_LED DUTY_PCTS, getScaledRamp(brightness));
+        set(CHARGING_LED PAUSE_LO, pauseLo);
+        set(CHARGING_LED PAUSE_HI, pauseHi);
+        set(CHARGING_LED RAMP_STEP_MS, stepDuration);
 
-        /* Enable blinking */
-        set(WHITE_LED BLINK, 1);
+        /* Enable blinking. */
+        set(CHARGING_LED BLINK, 1);
     } else {
-        set(WHITE_LED BRIGHTNESS, brightness);
+        set(CHARGING_LED BRIGHTNESS, brightness);
     }
 }
 
-/* Keep sorted in the order of importance. */
-static std::vector<LightBackend> backends = {
-    { Type::ATTENTION, handleNotification },
-    { Type::NOTIFICATIONS, handleNotification },
-    { Type::BATTERY, handleNotification },
-    { Type::BACKLIGHT, handleBacklight },
+static std::map<Type, std::function<void(const LightState&)>> lights = {
+    {Type::BACKLIGHT, handleBacklight},
+    {Type::BATTERY, handleNotification},
+    {Type::NOTIFICATIONS, handleNotification},
+    {Type::ATTENTION, handleNotification},
 };
 
-}  // anonymous namespace
-
-namespace android {
-namespace hardware {
-namespace light {
-namespace V2_0 {
-namespace implementation {
+Light::Light() {}
 
 Return<Status> Light::setLight(Type type, const LightState& state) {
-    LightStateHandler handler;
-    bool handled = false;
+    auto it = lights.find(type);
 
-    /* Lock global mutex until light state is updated. */
-    std::lock_guard<std::mutex> lock(globalLock);
-
-    /* Update the cached state value for the current type. */
-    for (LightBackend& backend : backends) {
-        if (backend.type == type) {
-            backend.state = state;
-            handler = backend.handler;
-        }
-    }
-
-    /* If no handler has been found, then the type is not supported. */
-    if (!handler) {
+    if (it == lights.end()) {
         return Status::LIGHT_NOT_SUPPORTED;
     }
 
-    /* Light up the type with the highest priority that matches the current handler. */
-    for (LightBackend& backend : backends) {
-        if (handler == backend.handler && isLit(backend.state)) {
-            handler(backend.state);
-            handled = true;
-            break;
-        }
-    }
+    /*
+     * Lock global mutex until light state is updated.
+     */
+    std::lock_guard<std::mutex> lock(globalLock);
 
-    /* If no type has been lit up, then turn off the hardware. */
-    if (!handled) {
-        handler(state);
-    }
+    it->second(state);
 
     return Status::SUCCESS;
 }
@@ -207,9 +175,7 @@ Return<Status> Light::setLight(Type type, const LightState& state) {
 Return<void> Light::getSupportedTypes(getSupportedTypes_cb _hidl_cb) {
     std::vector<Type> types;
 
-    for (const LightBackend& backend : backends) {
-        types.push_back(backend.type);
-    }
+    for (auto const& light : lights) types.push_back(light.first);
 
     _hidl_cb(types);
 

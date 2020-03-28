@@ -114,7 +114,6 @@ PRODUCT_PACKAGES += \
     camera.device@3.2-impl \
     libbson.vendor \
     libxml2 \
-    libcamera_metadata_helper \
     Snap
 
 # Dalvik

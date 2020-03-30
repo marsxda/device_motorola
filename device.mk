@@ -206,6 +206,25 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     ims-ext-common
 
+# Init
+PRODUCT_PACKAGES += \
+    fstab.qcom \
+    init.beckham.rc \
+    init.gbmods.sh \
+    init.mmi.ramdump.rc \
+    init.mmi.usb.rc \
+    init.mmi.usb.sh \
+    init.power.rc \
+    init.qcom.early_boot.sh \
+    init.qcom.post_boot.sh \
+    init.qcom.rc \
+    init.qcom.sensors.sh \
+    init.qcom.sh \
+    init.qti.qseecomd.sh \
+    move_time_data.sh \
+    ueventd.qcom.rc \
+    wlan_carrier_bin.sh
+
 # IPACM
 PRODUCT_PACKAGES += \
     ipacm \
@@ -362,26 +381,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     librmnetctl \
     libprotobuf-cpp-full
-
-# Ramdisk
-PRODUCT_PACKAGES += \
-    fstab.qcom \
-    init.mmi.laser.sh \
-    init.mmi.ramdump.rc \
-    init.mmi.usb.rc \
-    init.mmi.usb.sh \
-    init.qcom.rc \
-    init.beckham.rc \
-    init.power.rc \
-    init.qcom.early_boot.sh \
-    init.qcom.post_boot.sh \
-    init.qcom.sensors.sh \
-    init.qcom.sh \
-    init.gbmods.sh \
-    init.qti.qseecomd.sh \
-    ueventd.qcom.rc \
-    move_time_data.sh \
-    wlan_carrier_bin.sh
 
 # RCS
 PRODUCT_PACKAGES += \
